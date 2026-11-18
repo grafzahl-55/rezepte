@@ -1,7 +1,5 @@
 # Birnenschmarrn (Ofenvariante)
 
-- [ ] Für gut empfunden.
-
 - **Rezept:** Birnenschmarrn von *Betzedackel*
 - **Quelle:** [Chefkoch](https://www.chefkoch.de/rezepte/3196561475769275/Birnenschmarrn.html)
 - **Bewertung:** 4,3/5 (3 Bewertungen)
