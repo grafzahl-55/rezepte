@@ -7,7 +7,7 @@
 - **Für:** 4 Portionen · **Erstellt:** 10.10.2016
 - **Allergene:** Gluten · Eier · Milch
 
-![Birnenschmarrn](birnenschmarrn-img.jpg)
+![Birnenschmarrn](images/birnenschmarrn-img.jpg)
 
 ## Zutaten
 

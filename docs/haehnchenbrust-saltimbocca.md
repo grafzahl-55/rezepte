@@ -8,7 +8,7 @@
 - **Für:** 4 Portionen · **Erstellt:** 23.05.2013
 - **Nährwerte (pro 100 g):** 407 kJ / 97 kcal · 13,2 g Eiweiß · 0,9 g KH · 4,3 g Fett
 
-![Hähnchenbrust Saltimbocca](haehnchenbrust-saltimbocca-img.jpg)
+![Hähnchenbrust Saltimbocca](images/haehnchenbrust-saltimbocca-img.jpg)
 
 ## Zutaten (für 4 Personen)
 
