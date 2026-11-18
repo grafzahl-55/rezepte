@@ -1,0 +1,19 @@
+
+Überschrift: Rezepte von A-Z
+
+Es folgt eine Tabelle die alle Rezepte enthält. Sortiert nach dem Titel/Name des Rezepts. 
+
+Spalten:
+- Name/Titel des Rezepts als Link. Verweist auf den Text des Rezeptes: ``rezepte/[dateiname].md``     
+- Vorschaubild des Rezepts aus dem ``images`` Verzeichnis
+- Ein Icon, gemäß [[Konzeption#^d5f678]]
+- Autor des Rezepts (wenn vorhanden)
+- Quelle aus der das Rezept stammt als Link, der sich in neuem Browser-Tab öffnet
+
+Nach dem Hinzufügen eines Rezepts wird der Index neu neu aufgebaut:
+- Alte Tabellenzeilen *behalten*
+* Eine Tabellenzeile für den neuen Eintrag erstellen und an der richtigen Stelle in der Tabelle einfügen (Alphabetische Sortierung) 
+
+Bei **Neuindizierung** (Index neu erstellen) wird dagegen der Index neu aus dem aktuellen Inhalt des ``docs/rezepte`` erstellt.
+
+
