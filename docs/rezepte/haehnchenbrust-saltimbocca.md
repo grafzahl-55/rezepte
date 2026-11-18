@@ -1,5 +1,7 @@
 # Hähnchenbrust Saltimbocca mit Champignon-Sherry-Soße und Parmesankartoffeln
 
+- [ ] Für gut empfunden. 
+
 - **Rezept:** Hähnchenbrust Saltimbocca mit Champignon-Sherry-Soße und Parmesankartoffeln
 - **Quelle:** [kochbar.de](https://www.kochbar.de/rezept/468101/Haehnchenbrust-Saltimbocca-mit-Champignon-Sherry-Sosse-und-Parmesankartoffeln.html)
 - **Rezeptor:** *Das perfekte Dinner* (von)
@@ -34,6 +36,10 @@
 ## Kommentare
 
 - 5 von 5 Sternen bei 2 Bewertungen.
+
+## Eigene Bemerkungen
+
+
 
 ---
 *Einfaches Pfannenrezept — schnelle Hauptgerichte für 4 Personen.*

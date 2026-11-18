@@ -1,5 +1,7 @@
 # Birnenschmarrn (Ofenvariante)
 
+- [ ] Für gut empfunden.
+
 - **Rezept:** Birnenschmarrn von *Betzedackel*
 - **Quelle:** [Chefkoch](https://www.chefkoch.de/rezepte/3196561475769275/Birnenschmarrn.html)
 - **Bewertung:** 4,3/5 (3 Bewertungen)
@@ -31,6 +33,9 @@
 
 - **nudelmary:** „Erstaunt, dass die Variante in der Röhre so gut gelungen ist." Da Birnenkompott gekocht wurde, gab es dieses dazu statt Preiselbeeren. Sehr gut gelungen.
 - **Estrella1:** „Schmeckt sehr gut!" Backt solche Sachen aber nur am Herd wie Kaiserschmarrn — hat trotzdem gut funktioniert.
+
+## Eigene Bemerkungen
+(noch keine)
 
 ---
 *Hinweis: Es ist ein Ofen-Birnenschmarrn (im Backofen gebacken, dann zerrissen), nicht der klassische Pfannenschmarrn.*
