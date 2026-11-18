@@ -32,9 +32,10 @@ Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: ein
 5. Markdown-Datei unter `docs/rezepte/` anlegen.
 6. Index (`docs/index.md`) aktualisieren.
 7. **Kein `#gut`-Tag beim Import.** Neue Rezepte bekommen beim Import standardmäßig **kein** Bewertungstags (`#gut`, `#neu`, …) und landen damit im Index als ❓. Erst wenn ein Link geprüft/würdig ist, wird das Tag (und das Icon) nachträglich ergänzt.
+8. **Scraping/Hinweise:** `curl` mit normalem Browser-Ursprung (`Mozilla/5.0`) funktioniert bei chefkoch.de, shibaskitchen.de und emmikochteinfach.de. **REWE (`rewe.de`) blockiert Scraping** (WAF/Bot-Schutz) → Rezepte dort nicht importierbar, Link bleibt offen. Proseg-basierte Seiten (z. B. shibaskitchen) haben oft kein JSON-LD → Rezept aus Blogtext rekonstruieren.
 
 ## Index (`docs/index.md`)
-- Alphabetisch sortierte Tabelle, alle alten Zeilen behalten.
+- **Alphabetisch sortiert nach Titel**, alle alten Zeilen behalten.
 - Spalten: **Rezept** (Icon) | **Vorschau** | **Titel** (Link zur Rezept-Datei) | **Autor** | **Quelle** (Link)
 - **Titel als Link:** `[Titel](rezepte/[name].md)` — verlinkt zum jeweiligen Rezept.
 - **Icon nach Tags:** `#gut` → ✅, kein Tag/`#neu` → ❓
@@ -45,6 +46,12 @@ Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: ein
 - `project/Konzeption.md` — Besondere Tags (Icons/Tags)
 - `project/Namenskonventionen.md` — Dateinamen
 - `project/Struktur.md` — Verzeichnisstruktur
+
+## Veröffentlichung (GitHub Pages)
+- Das Projekt wird als **statische Website** über **GitHub Pages** veröffentlicht.
+- **Veröffentlichung ist eingerichtet und erfolgt automatisch** nach `git push` (GitHub Actions / Pages-Regel).
+- **Ich muss nichts manuell deployen** — nach `git commit` + `git push` wird die neue Version automatisch veröffentlicht.
+- Rohdaten (noch nicht importiert) → `rohdaten/`
 
 ## Sonstige Regeln
 Anweisung: fazit 

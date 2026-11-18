@@ -8,6 +8,7 @@
 - **Für:** 4 Portionen · **Erstellt:** 06.11.2020
 - **Allergene:** Milch
 - **Nährwerte:** 932 kcal / Portion
+#gut 
 
 ![Würzige Schmorgurken mit Hackfleisch](../images/schmorgurken-mit-hackfleisch-img.jpg)
 
