@@ -4,9 +4,11 @@
 Es folgt eine Tabelle die alle Rezepte enthält. Sortiert nach dem Titel/Name des Rezepts. 
 
 Spalten:
-- Name/Titel des Rezepts als Link. Verweist auf den Text des Rezeptes: ``rezepte/[dateiname].md``     
-- Vorschaubild des Rezepts aus dem ``images`` Verzeichnis
+
 - Ein Icon, gemäß [[Konzeption#^d5f678]]
+- Name/Titel des Rezepts als Link. Verweist auf den Text des Rezeptes: ``rezepte/[dateiname].md`` 
+- Vorschaubild des Rezepts aus dem ``images`` Verzeichnis
+
 - Autor des Rezepts (wenn vorhanden)
 - Quelle aus der das Rezept stammt als Link, der sich in neuem Browser-Tab öffnet
 
