@@ -1,6 +1,6 @@
 
 # Birnenschmarrn (Ofenvariante)
-#gut 
+ #gut 
 
 - **Rezept:** Birnenschmarrn von *Betzedackel*
 - **Quelle:** [Chefkoch](https://www.chefkoch.de/rezepte/3196561475769275/Birnenschmarrn.html)

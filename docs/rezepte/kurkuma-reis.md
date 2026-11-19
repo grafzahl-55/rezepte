@@ -7,7 +7,7 @@
 - **Arbeitszeit:** 15 Min. · **Gesamtzeit:** 25 Min. · **Schwierigkeit:** Einfach
 - **Für:** 4 Portionen · **Erstellt:** Oktober 2022
 - **Allergene:** (keine)
-
+ #gut 
 ![Kurkuma Reis mit Erbsen](../images/kurkuma-reis-img.jpg)
 
 ## Zutaten (für 4 Portionen)

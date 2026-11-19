@@ -27,7 +27,8 @@ Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: ein
 ## Import-Regeln (Rezept aus URL)
 1. Rezept aus URL extrahieren (Zutaten, Zubereitung, Zeiten, Allergene).
 2. **Portionierung auf 4 Personen** (Original oft für 2).
-3. Vorschaubild suchen → nach `docs/images/[name]-img.jpg` kopieren.
+3. Vorschaubild nach `docs/images/[name]-img.jpg` kopieren.
+3a. **Bildquellen-Reihenfolge:** Erst prüfen, ob ein passendes Bild in `rohdaten/`, im Clipping (`Clippings/`) oder sonst lokal verfügbar ist → dann nutzen. Erst wenn **kein** lokales Bild existiert, versuche das Bild direkt von der Quelle (og:image / og:image:alt) zu beziehen. Wenn auch das nicht klappt (z. B. Quelle blockiert wie EDEKA/REWE): **nicht** sofort im Web suchen — **anhalten und den Nutzer fragen**, ob er ein Bild zur Verfügung hat. Nur als allerletzten Schritt, wenn der Nutzer selbst keine Bildquelle genannt hat, im Web suchen.
 4. WebP/VP8-Bilder ggf. mit `ffmpeg` in echtes JPEG (baseline) konvertieren.
 5. Markdown-Datei unter `docs/rezepte/` anlegen.
 6. Index (`docs/index.md`) aktualisieren.

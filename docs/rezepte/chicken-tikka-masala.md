@@ -7,6 +7,7 @@
 - **Arbeitszeit:** 30 Min. · **Gesamtzeit:** 50 Min. · **Schwierigkeit:** Normal
 - **Für:** 4 Portionen · **Erstellt:** 06.12.2022
 - **Allergene:** Milch
+ #gut 
 
 ![Chicken Tikka Masala](../images/chicken-tikka-masala-img.jpg)
 

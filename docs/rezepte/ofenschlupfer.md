@@ -6,7 +6,7 @@
 - **Arbeitszeit:** 20 Min. · **Gesamtzeit:** 60 Min. · **Schwierigkeit:** einfach
 - **Für:** 4 Portionen · **Erstellt:** 18.11.2026
 - **Allergene:** Ei · Milch
-#gut 
+ #gut 
 
 ![Ofenschlupfer](../images/ofenschlupfer-img.jpg)
 

@@ -7,7 +7,7 @@
 - **Arbeitszeit:** 20 Min. · **Gesamtzeit:** 1 Std. 5 Min. · **Schwierigkeit:** Normal
 - **Für:** 12 Portionen · **Erstellt:** 19.04.2023
 - **Allergene:** (keine angegeben)
-
+ #gut 
 ![Rhabarber Streuselkuchen](../images/rhabarber-streuselkuchen-img.jpg)
 
 ## Zutaten
@@ -36,7 +36,7 @@
 - **Autorin Emmi:** „Eines meiner liebsten Rezepte ist dann mein einfacher Rhabarberkuchen mit Streusel. Die Kombination von säuerlichem Rhabarber und süßen Streuseln ist eine wahre Gaumenfreude. Sowohl der Boden als auch das Topping sind aus ein und derselben Streuselteig-Masse."
 
 ## Eigene Bemerkungen
-(noch keine)
+Weniger Zitrone
 
 ---
 *Saftiger Rhabarberkuchen mit Streuselboden und Streuseltopping — der Kuchen für alle Streusel-Fans.*
