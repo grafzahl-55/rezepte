@@ -1,4 +1,4 @@
-# Grünkohleintopf mit Kasseler
+# Grünkohleintopf mit Kassler
 
 - **Rezept:** Grüne Kohleintopf mit Kasseler
 - **Quelle:** [Chefkoch](https://www.chefkoch.de/rezepte/674671169743414/Gruenkohleintopf-mit-Kasseler.html)
@@ -6,7 +6,7 @@
 - **Arbeitszeit:** 45 Min. · **Gesamtzeit:** 45 Min. · **Schwierigkeit:** Mittel
 - **Für:** 4 Portionen · **Erstellt:** 19.11.2025
 - **Allergene:** Gluten · Milch · Schweinefleisch · Eier
-
+#gut
 ![Grüne Kohleintopf mit Kasseler](../images/gruenkohleintopf-mit-kasseler-img.jpg)
 
 ## Zutaten

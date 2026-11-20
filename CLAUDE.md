@@ -1,6 +1,6 @@
 # CLAUDE.md — Rezeptesammlung
 
-Dieses Projekt ist eine **Rezeptesammlung**, die wie eine statische Website auf **GitHub Pages** veröffentlicht wird (nicht als Obsidian-Vault).
+Dieses Projekt ist ein **dual-purpose** Setup: Es wird wie eine statische Website auf **GitHub Pages** veröffentlicht (nur die Inhalte in `docs/` werden publiziert), **wird aber lokal in Obsidian** bearbeitet (`~/.obsidian/`, lokal, nicht in Git). Die Dateien folgen den Regeln unten, nicht den Obsidian-Voreinstellungen.
 
 ## Ziel
 Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: eine Markdown-Datei pro Rezept + ein Vorschaubild.
@@ -28,25 +28,29 @@ Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: ein
 1. Rezept aus URL extrahieren (Zutaten, Zubereitung, Zeiten, Allergene).
 2. **Portionierung auf 4 Personen** (Original oft für 2).
 3. Vorschaubild nach `docs/images/[name]-img.jpg` kopieren.
-3a. **Bildquellen-Reihenfolge:** Erst prüfen, ob ein passendes Bild in `rohdaten/`, im Clipping (`Clippings/`) oder sonst lokal verfügbar ist → dann nutzen. Erst wenn **kein** lokales Bild existiert, versuche das Bild direkt von der Quelle (og:image / og:image:alt) zu beziehen. Wenn auch das nicht klappt (z. B. Quelle blockiert wie EDEKA/REWE): **nicht** sofort im Web suchen — **anhalten und den Nutzer fragen**, ob er ein Bild zur Verfügung hat. Nur als allerletzten Schritt, wenn der Nutzer selbst keine Bildquelle genannt hat, im Web suchen.
+3a. **Bildquellen-Reihenfolge:** 1) Die Quelle einlesen (eine URL oder ein Clipping, ggf. auch ein PDF). 2) Wenn sich dort ein passendes Bild findet, dann dieses Bild als Vorschau nehmen. 3) Erst wenn das nicht gelingt: **Mich fragen**, ob ich ein Bild beisteuern kann — dann lege ich es zu den Rohdaten (`rohdaten/`).
+3b. **Rohdaten nur nach Aufforderung benutzen.** Bilder aus `rohdaten/` werden **nie** von selbst gesucht — nur, wenn ich (Nyx) nachfrage und Michael ein Bild bereitgestellt hat.
+3c. **Keine automatische Web-Suche.** Eine Websuche nach einem passenden Bild führe ich **nur** nach ausdrücklicher Aufforderung von Michael durch.
 4. WebP/VP8-Bilder ggf. mit `ffmpeg` in echtes JPEG (baseline) konvertieren.
 5. Markdown-Datei unter `docs/rezepte/` anlegen.
 6. Index (`docs/index.md`) aktualisieren.
-7. **Kein `#gut`-Tag beim Import.** Neue Rezepte bekommen beim Import standardmäßig **kein** Bewertungstags (`#gut`, `#neu`, …) und landen damit im Index als ❓. Erst wenn ein Link geprüft/würdig ist, wird das Tag (und das Icon) nachträglich ergänzt.
-8. **Scraping/Hinweise:** `curl` mit normalem Browser-Ursprung (`Mozilla/5.0`) funktioniert bei chefkoch.de, shibaskitchen.de und emmikochteinfach.de. **REWE (`rewe.de`) blockiert Scraping** (WAF/Bot-Schutz) → Rezepte dort nicht importierbar, Link bleibt offen. Proseg-basierte Seiten (z. B. shibaskitchen) haben oft kein JSON-LD → Rezept aus Blogtext rekonstruieren.
+7. **Kein Bewertungstags beim Import.** Neue Rezepte bekommen beim Import standardmäßig **kein** Bewertungstags (`#gut`, `#neu`, …) und landen damit im Index als ❓. Der **User** ist Autorität für das Tag: Er setzt es selbst nach dem Probieren in der Rezept-Datei (`#gut` = bewährt → ✅, `#neu` = noch nicht ausprobiert → ❓). **Nyx ergänzt danach nur das Icon im Index** (Dry-Run, dann nach Bestätigung) — er setzt keine Tags eigenständig.
+8. **Scraping/Hinweise:** `curl` mit normalem Browser-Ursprung (`Mozilla/5.0`) funktioniert bei chefkoch.de, shibaskitchen.de und emmikochteinfach.de. **REWE (`rewe.de`) blockiert direktes Scraping** (WAF/Bot-Schutz), aber Rezepte sind über **WebClipper-Clipping** importierbar (Clipping in `Clippings/`, daraus Rezept rekonstruieren). Proseg-basierte Seiten (z. B. shibaskitchen) haben oft kein JSON-LD → Rezept aus Blogtext rekonstruieren. Details je Quelle: `project/sites.md`.
 
 ## Index (`docs/index.md`)
-- **Alphabetisch sortiert nach Titel**, alle alten Zeilen behalten.
-- Spalten: **Rezept** (Icon) | **Vorschau** | **Titel** (Link zur Rezept-Datei) | **Autor** | **Quelle** (Link)
+-  Spalten: **Rezept** (Icon) | **Vorschau** | **Titel** (Link zur Rezept-Datei) | **Autor** | **Quelle** (Link)
 - **Titel als Link:** `[Titel](rezepte/[name].md)` — verlinkt zum jeweiligen Rezept.
 - **Icon nach Tags:** `#gut` → ✅, kein Tag/`#neu` → ❓
 - Vorschau-Bild: `<img src="images/[name]-img.jpg" alt="..." style="width:100px;height:auto;" />`
+- **Sortierung der Tabelle:** Nach dem **Anzeigentext** des Titels (Link-Text des Markdown-Links), nicht nach der Ziel-Datei. Deutsche Wörterbuch-Reihenfolge: Umlaute ä/ö/ü als ae/oe/ue. De-facto-Regel: Bei **Neuimport** chronologisch (neue Zeile ans Ende anhängen); **Sortierung der Tabelle selbst ist ein separater Vorgang** (Skript `bin/index-sort.py`).
+- **Sortierung ist eine Erfolg-Änderung:** Eine alphabetische Sortierung der Tabelle ist eine **erfolgreiche Änderung** → darf **nie** automatisch/ohne ausdrückliche Aufforderung ausgeführt werden. Nur manuell: (a) von Nyx, **nach** ausdrücklicher Aufforderung des Users, oder (b) vom User selbst per Skript.
 
 ## Projekt-Regeln
 - `project/index-regeln.md` — Index-Regeln
 - `project/Konzeption.md` — Besondere Tags (Icons/Tags)
 - `project/Namenskonventionen.md` — Dateinamen
 - `project/Struktur.md` — Verzeichnisstruktur
+- `project/sites.md` — Website-Status: welche Quellen erfolgreich importiert, welche problematisch sind
 
 ## Veröffentlichung (GitHub Pages)
 - Das Projekt wird als **statische Website** über **GitHub Pages** veröffentlicht.
@@ -58,5 +62,6 @@ Ein KI-Agent (Nyx) extrahiert Rezepte aus URLs und legt sie strukturiert ab: ein
 Anweisung: fazit 
 1. Die den Inhalt der aktuellen session zusammenfassen.
 2. Informationen über den Beginn der Sitzung und die Erstellung des Fazit müssen enthalten sein. 
-3. Den Inhalt abspeichern in einer Datei session-logs/[YYYY]/[MM]/[YYYY-MM-DD].md
+3. Den Inhalt abspeichern in einer Datei session-logs/[YYYY]/[MM]/[YYYY-MM-DD].md Das Verzeichnis session-logs im Hauptverzeichnis des Projekts nutzen.
 4. Falls diese Datei schon existiert: Den Inhalt am Ende der Datei anhängen.
+5. Kein automatisches Fazit - nur nach Aufforderung,

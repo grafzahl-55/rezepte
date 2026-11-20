@@ -1,4 +1,5 @@
 
+**Legende:** `[x]` = Import abgeschlossen (Rezept-Datei existiert unter `docs/rezepte/`). `[ ]` = Link noch nicht geprüft / Import nicht abgeschlossen.
 - [x] [https://www.gewuerze-der-welt.net/rezepte/hauptgang/ofenschlupfer](https://www.gewuerze-der-welt.net/rezepte/hauptgang/ofenschlupfer)
 - [x] [https://www.kochbar.de/rezept/468101/Haehnchenbrust-Saltimbocca-mit-Champignon-Sherry-Sosse-und-Parmesankartoffeln.html](https://www.kochbar.de/rezept/468101/Haehnchenbrust-Saltimbocca-mit-Champignon-Sherry-Sosse-und-Parmesankartoffeln.html)
 - [x] [https://www.chefkoch.de/rezepte/2647841416081307/Pasta-in-cremiger-Pilzsauce.html](https://www.chefkoch.de/rezepte/2647841416081307/Pasta-in-cremiger-Pilzsauce.html)
@@ -30,10 +31,10 @@
 - [x] [https://www.chefkoch.de/rezepte/1131861219575913/Mediterrane-Zucchini-Pfanne.html](https://www.chefkoch.de/rezepte/1131861219575913/Mediterrane-Zucchini-Pfanne.html)
 - [x] [https://www.malteskitchen.de/gebackener-blumenkohl-kaese-sahne-sauce-reis-kichererbsen/#google_vignette](https://www.malteskitchen.de/gebackener-blumenkohl-kaese-sahne-sauce-reis-kichererbsen/#google_vignette)
 - [x] [https://www.gaumenfreundin.de/gebratener-reis-mit-gemuese-und-ei/](https://www.gaumenfreundin.de/gebratener-reis-mit-gemuese-und-ei/)
-- [ ] [https://www.gaumenfreundin.de/ganz-einfache-kartoffelsuppe-mit-wuerstchen-und-suppengemuese/#rezept](https://www.gaumenfreundin.de/ganz-einfache-kartoffelsuppe-mit-wuerstchen-und-suppengemuese/#rezept)
-- [ ] [https://www.malteskitchen.de/huehnersuppe-nudeln-knoblauch/](https://www.malteskitchen.de/huehnersuppe-nudeln-knoblauch/)
-- [ ] [https://sabrinastable.com/de/kabeljau-paniert-schmeckt-er-noch-besser/#recipe-creator--recipe](https://sabrinastable.com/de/kabeljau-paniert-schmeckt-er-noch-besser/#recipe-creator--recipe)
-- [ ] [https://www.ndr.de/ratgeber/kochen/rezepte/Gruene-Gemuese-Tarte,rezept3992.html](https://www.ndr.de/ratgeber/kochen/rezepte/Gruene-Gemuese-Tarte,rezept3992.html)
+- [x] [https://www.gaumenfreundin.de/ganz-einfache-kartoffelsuppe-mit-wuerstchen-und-suppengemuese/#rezept](https://www.gaumenfreundin.de/ganz-einfache-kartoffelsuppe-mit-wuerstchen-und-suppengemuese/#rezept)
+- [x] [https://www.malteskitchen.de/huehnersuppe-nudeln-knoblauch/](https://www.malteskitchen.de/huehnersuppe-nudeln-knoblauch/)
+- [x] [https://sabrinastable.com/de/kabeljau-paniert-schmeckt-er-noch-besser/#recipe-creator--recipe](https://sabrinastable.com/de/kabeljau-paniert-schmeckt-er-noch-besser/#recipe-creator--recipe)
+- [x] [https://www.ndr.de/ratgeber/kochen/rezepte/Gruene-Gemuese-Tarte,rezept3992.html](https://www.ndr.de/ratgeber/kochen/rezepte/Gruene-Gemuese-Tarte,rezept3992.html)
 - [ ] [https://emmikochteinfach.de/huehnerfrikassee-schnell-und-einfach-gemacht/](https://emmikochteinfach.de/huehnerfrikassee-schnell-und-einfach-gemacht/)
 - [ ] [https://www.eatbetter.de/rezepte/fenchel-curry-einfach-lecker](https://www.eatbetter.de/rezepte/fenchel-curry-einfach-lecker)
 - [ ] [https://eatsmarter.de/rezepte/waffeln-mit-lachs](https://eatsmarter.de/rezepte/waffeln-mit-lachs)
@@ -67,5 +68,6 @@
 - [ ] [https://www.gutekueche.at/baerlauch-nudeln-rezept-17486](https://www.gutekueche.at/baerlauch-nudeln-rezept-17486)
 - [ ] [https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe](https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe) 
 - [ ] https://www.gewuerze-der-welt.net/rezepte/hauptgang/orientalische-hackfleisch-fladen-mit-baharat-unserem-gewuerz-des-monats?srsltid=AU7gw4Wtqz6KRXBJvT-XhE98r25EXjiyTPM-ufmzxpSrNGg14A1VBEU_
-- [ ] 
+- [ ] https://asiastreetfood.com/blogs/rezept/funf-gewurze-tofu
+- [ ] https://www.lecker.de/klassischer-gemueseeintopf-70683.html
 
