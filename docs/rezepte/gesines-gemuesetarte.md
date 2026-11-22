@@ -6,6 +6,6 @@
 
 ![Vorschau](../images/gesines-gemuesetarte-img.jpg)
 
-![[Gemuesetarte.jpg]] 
+<img src='../images-extra/Gemuesetarte.jpg' alt='Gemuesetarte' /> 
 
 ---

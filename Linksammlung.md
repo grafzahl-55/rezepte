@@ -44,7 +44,7 @@
 - [x] [https://www.chefkoch.de/rezepte/426431133556910/Omas-Kohlrouladen.html](https://www.chefkoch.de/rezepte/426431133556910/Omas-Kohlrouladen.html)
 - [x] [https://www.kochbar.de/rezept/295405/Szegediner-Gulasch.html?personen=4](https://www.kochbar.de/rezept/295405/Szegediner-Gulasch.html?personen=4)
 - [x] [https://www.einfachkochen.de/rezepte/kaese-lauch-suppe-mit-hackfleisch?portions=4](https://www.einfachkochen.de/rezepte/kaese-lauch-suppe-mit-hackfleisch?portions=4)
-- [ ] [https://eatsmarter.de/rezepte/mediterranes-schmorgemuese](https://eatsmarter.de/rezepte/mediterranes-schmorgemuese)
+- [x] [https://eatsmarter.de/rezepte/mediterranes-schmorgemuese](https://eatsmarter.de/rezepte/mediterranes-schmorgemuese)
 - [ ] [https://eatsmarter.de/rezepte/haehnchensalat-auf-vietnamesische-art-0](https://eatsmarter.de/rezepte/haehnchensalat-auf-vietnamesische-art-0)
 - [ ] [https://www.chefkoch.de/rezepte/2640031414753368/Avocado-Moehren-Frischkaese-Aufstrich-auf-Vollkornbrot.html](https://www.chefkoch.de/rezepte/2640031414753368/Avocado-Moehren-Frischkaese-Aufstrich-auf-Vollkornbrot.html)
 - [x] [https://www.rewe.de/rezepte/irish-stew/](https://www.rewe.de/rezepte/irish-stew/)

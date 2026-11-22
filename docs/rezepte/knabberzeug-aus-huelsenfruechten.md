@@ -6,5 +6,5 @@
 ![Vorschau](../images/knabberzeug-aus-huelsenfruechten-img.jpg)
 
 
-![[Knabberzeug-aus-Huelsenfruechten.jpg]]
+<img src='../images-extra/Knabberzeug-aus-Huelsenfruechten.jpg' alt='Knabberzeug-aus-Huelsenfruechten' />
 ---

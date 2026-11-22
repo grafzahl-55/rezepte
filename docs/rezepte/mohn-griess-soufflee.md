@@ -6,4 +6,4 @@
 ![Vorschau](../images/mohn-griess-soufflee-img.jpg)
 
 
-![[Mohn-Griess-Soufflee.jpg]]
+<img src='../images-extra/Mohn-Griess-Soufflee.jpg' alt='Mohn-Griess-Soufflee' />

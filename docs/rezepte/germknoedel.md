@@ -5,7 +5,8 @@
 
 ![Vorschau](../images/germknoedel-img.jpg)
 
-![[Germknoedel.jpg]]
+<img src="images-extra/Germknoedel.jpg" alt="Germknödel"> 
+
 
 ## Eigene Bemerkungen
 (noch keine)

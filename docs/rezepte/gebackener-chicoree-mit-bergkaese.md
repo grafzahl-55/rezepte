@@ -6,7 +6,7 @@
 ![Vorschau](../images/gebackener-chicoree-mit-bergkaese-img.jpg)
 
 
-![[docs/images-extra/Gebackener-Chicoree-mit-Bergkaese.jpg]]
+<img src='../images-extra/Gebackener-Chicoree-mit-Bergkaese.jpg' alt='Gebackener-Chicoree-mit-Bergkaese' />
 ## Eigene Bemerkungen
 Wir hatten 8 Chicorée, war schon  etwas knapp.
 Viel mehr Käse (2×150). Nächstes Mal eine andere Sorte... der  Bergkäse war zu lasch.

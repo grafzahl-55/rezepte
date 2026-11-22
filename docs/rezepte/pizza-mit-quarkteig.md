@@ -5,6 +5,6 @@
 
 ![Vorschau](../images/pizza-mit-quarkteig-img.jpg)
 
-![[Pizza-mit-Quarkteig.jpg]]
+<img src='../images-extra/Pizza-mit-Quarkteig.jpg' alt='Pizza-mit-Quarkteig' />
 
 ---
