@@ -1,9 +1,19 @@
-# TITEL
+# [TITEL]
 
+- **Quelle:** 
+- **Für:** 4 Portionen 
 
-ZUASMMENFASSUNG aus der URL mir Bild
+![Vorschau](../images/[name]-img.jpg)
+
+## Zutaten
+
+- 
+
+## Zubereitung
+
+1. 
+
 ## Eigene Bemerkungen
 (noch keine)
 
 ---
-FUSSNOTE

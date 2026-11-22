@@ -15,6 +15,7 @@
 	- [ ] Pizza mit Quarkteig
 	- [ ] Quittenmus
 - [x] Vielleicht ein Skript, welches den index neu aufbaut und dabei sortiert????
+- [ ] Vorschaubilder kleiner skalieren (max 600Px breit)
 
 
 

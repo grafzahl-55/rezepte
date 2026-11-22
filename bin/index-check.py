@@ -11,11 +11,18 @@ Was wird geprüft:
   3. Alle gefundenen Fehler/Probleme werden angezeigt (nur Anzeige, keine Änderung).
 
 Aufruf:
-    python3 project/index-check.py [--write]
+    python3 project/index-check.py [--write] [--add]
 
 Mit --write werden die gefundenen Icon-Fehler in docs/index.md korrigiert
 (die Rezept-Dateien bleiben Autorität). Ohne --write läuft der Check im
 Dry-Run-Modus und ändert nichts.
+
+Mit --add werden alle Rezept-Dateien in docs/rezepte/, die im Index noch
+fehlen, als neue Tabellenzeile angehängt (neues Rezept = neue Zeile ans Ende).
+Titel aus der Kopfzeile, Autor aus dem „Rezept"-Feld, Quelle aus dem
+„Quelle"-Feld der Rezept-Datei. Autor/Quelle bleiben leer, wenn die Rezept-
+Datei keine Infos liefert (dann selbst ergänzen). Die Tabelle wird NICHT
+sortiert — nur angehängt (Sortierung ist ein separater Vorgang).
 """
 
 import argparse
@@ -55,6 +62,62 @@ def read_icon_map(recipes_dir):
                 break
         icon_map[fname] = icon
     return icon_map
+
+
+def extract_metadata(recipes_dir, fname):
+    """
+    Extrahiert Titel, Autor und Quelle aus einer Rezept-Datei.
+    Titel: Text der ersten Zeile (Kopfzeile).
+    Autor: aus dem „Rezept"-Feld, wenn es „von *Name*" enthält.
+    Quelle: aus dem „Quelle"-Feld; wenn ein Link vorhanden, wird dieser als Markdown-Link verwendet.
+    Gibt ein Dict {title, author, source_link} zurück.
+    """
+    path = os.path.join(recipes_dir, fname)
+    try:
+        with open(path, "r", encoding="utf-8", errors="ignore") as f:
+            content = f.read()
+    except OSError:
+        return {"title": fname, "author": "", "source_link": ""}
+
+    # Titel: erste Zeile
+    title = ""
+    for line in content.split("\n"):
+        line = line.strip()
+        if line.startswith("#"):
+            title = line.lstrip("#").strip()
+            break
+    if not title:
+        title = fname.replace(".md", "")
+
+    # Autor: aus dem „Rezept"-Feld, wenn „von *Name*" vorhanden
+    author = ""
+    m = re.search(r"- \*\*Rezept:\*\*[^*]*?von\s+(?:\*([^*]+)\*)?", content)
+    if m:
+        author = m.group(1).strip()
+
+    # Quelle: aus dem „Quelle"-Feld
+    source_link = ""
+    m = re.search(r"- \*\*Quelle:\*\*\s*(.+)", content)
+    if m:
+        val = m.group(1).strip()
+        if val and val != "???":
+            # Falls ein Markdown-Link vorhanden ist, diesen übernehmen.
+            if re.match(r"\[[^\]]+\]\([^\)]+\)", val):
+                source_link = val
+            else:
+                # Nur reiner Text (z. B. „Chefkoch") — roher Text ohne Link.
+                source_link = val
+        else:
+            source_link = ""
+    return {"title": title, "author": author, "source_link": source_link}
+
+
+def row_exists(rows, recipe):
+    """Prüft, ob der Rezeptname bereits in der Tabelle verlinkt ist."""
+    for r in rows:
+        if r["recipe"] == recipe:
+            return True
+    return False
 
 
 def parse_table_rows(index_path):
@@ -110,6 +173,62 @@ def parse_table_rows(index_path):
             # Zeile ohne Rezept-Verweis (z. B. Trennzeile)
             continue
     return rows
+
+
+def add_missing_rows(RECIPES_DIR, INDEX_FILE, add):
+    """
+    Hängt alle Rezept-Dateien an die Tabellen-Ende, die noch nicht im Index
+    verlinkt sind. Schreibt nur im Schreibmodus (--write); sonst Dry-Run-Anzeige.
+    Sortiert NICHT — nur anhängen.
+    """
+    # Alle Rezepte im Verzeichnis und im Index
+    all_recipes = [f[:-3] for f in sorted(os.listdir(RECIPES_DIR)) if f.endswith(".md")]
+    rows = parse_table_rows(INDEX_FILE)
+    # parse_table_rows liefert Rezept-Namen mit .md; vergleiche auf Bare-Names.
+    existing = {r["recipe"].replace(".md", "") for r in rows}
+
+    to_add = [r for r in all_recipes if r not in existing]
+    if not to_add:
+        print("\nKeine neuen Rezepte im Index gefunden — nichts zu tun.")
+        return 0
+
+    print("\n[4] Neue Rezepte, die dem Index fehlen:")
+    for r in to_add:
+        meta = extract_metadata(RECIPES_DIR, r + ".md")
+        title = meta["title"]
+        author = meta["author"]
+        source = meta["source_link"]
+        bare = r.replace(".md", "")
+        # Leerzeichen in den Spalten ausrichten (wie bestehende Zeilen)
+        row = "| ❓    | <img src=\"images/%s-img.jpg\" alt=\"%s\" style=\"width:100px;height:auto;\" /> | [%s](rezepte/%s.md) | %s | %s |" % (
+            bare, title, title, r, author, source)
+        print("   Neu: %s" % title)
+
+    if not add:
+        print("\nDry-Run: Es wird NICHT geschrieben. Mit --write ausführen.")
+        return len(to_add)
+
+    # Anhängen
+    with open(INDEX_FILE, "r", encoding="utf-8") as f:
+        content = f.read()
+    content = content.rstrip("\n")
+    for r in to_add:
+        meta = extract_metadata(RECIPES_DIR, r + ".md")
+        title = meta["title"]
+        author = meta["author"]
+        source = meta["source_link"]
+        # Icon aus dem Tag der Rezept-Datei (✅ bei #gut, sonst ❓)
+        icon = "✅" if re.search(r"^\s*#\s*gut\b", open(os.path.join(RECIPES_DIR, r + ".md"), "r", encoding="utf-8", errors="ignore").read(), re.MULTILINE) else "❓"
+        bare = r.replace(".md", "")
+        row = "| %s    | <img src=\"images/%s-img.jpg\" alt=\"%s\" style=\"width:100px;height:auto;\" /> | [%s](rezepte/%s.md) | %s | %s |" % (
+            icon, bare, title, title, r, author, source)
+        content = content + "\n" + row
+
+    with open(INDEX_FILE, "w", encoding="utf-8") as f:
+        f.write(content)
+    print("\nSchreibmodus: %d neue Zeile(n) in %s angehängt." % (len(to_add), INDEX_FILE))
+    print("Hinweis: Autor/Quelle leer, wenn die Rezept-Datei keine Infos liefert — selbst ergänzen.")
+    return len(to_add)
 
 
 def check_all(icon_map, rows, write=False):
@@ -229,8 +348,17 @@ def _fix_icons_in_index(icon_map, rows, mismatches):
 def main():
     parser = argparse.ArgumentParser(description="Prüft die Rezept-Übersichts-Datei (docs/index.md).")
     parser.add_argument("--write", action="store_true", help="Icon-Fehler in der Index-Datei korrigieren")
+    parser.add_argument("--add", action="store_true", help="Neue Rezepte (nicht im Index) anhängen")
     args = parser.parse_args()
 
+    # 1. Optional: fehlende Rezepte anhängen. Danach wird der Check auf der
+    #    aktualisierten Tabelle durchgeführt.
+    if args.add:
+        add_missing_rows(RECIPES_DIR, INDEX_FILE, add=args.write)
+    else:
+        print("\nHinweis: --add fehlt. Nutze 'python3 index-check.py --add' um neue Rezepte anzuhängen.")
+
+    # 2. Normaler Check (Icon-Korrekturen auch ohne --add)
     icon_map = read_icon_map(RECIPES_DIR)
     rows = parse_table_rows(INDEX_FILE)
     check_all(icon_map, rows, write=args.write)

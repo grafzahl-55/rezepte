@@ -1,14 +1,6 @@
 
 
 
-## Käse Lauch Suppe
-
-
-## Gebackener Chicoree mit Bergkäse
-Wir hatten 8 Chicorée, war schon  etwas knapp.
-Viel mehr Käse (2×150). Nächstes Mal eine andere Sorte... der  Bergkäse war zu lasch.
-Kein Wasser zu den Zwiebeln.
-
 
 
 ## Hähnchensalat auf vietnamesische Art
