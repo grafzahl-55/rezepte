@@ -1,6 +1,6 @@
 # Minestrone
 
-- **Quelle:** 
+- **Quelle:** -
 - **Für:** 4 Portionen 
 
 #gut 

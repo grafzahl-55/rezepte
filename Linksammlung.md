@@ -53,21 +53,21 @@
 - [x] [https://www.chefkoch.de/rezepte/366321122158064/Geschnetzeltes-in-Pilz-Sahnesosse.html](https://www.chefkoch.de/rezepte/366321122158064/Geschnetzeltes-in-Pilz-Sahnesosse.html)
 - [x] [https://www.chefkoch.de/rezepte/1967631319634158/Quittenschnitten.html](https://www.chefkoch.de/rezepte/1967631319634158/Quittenschnitten.html)
 - [x] [https://www.chefkoch.de/rezepte/2521511395353744/Hefekuchen-vom-Blech.html](https://www.chefkoch.de/rezepte/2521511395353744/Hefekuchen-vom-Blech.html)
-- [ ] [https://www.gaumenfreundin.de/tortilla-wraps-selber-machen/#recipe](https://www.gaumenfreundin.de/tortilla-wraps-selber-machen/#recipe)
-- [ ] [https://www.einfachmalene.de/schoko-haferflockenkekse-mit-zimt/](https://www.einfachmalene.de/schoko-haferflockenkekse-mit-zimt/)
+- [x] [https://www.gaumenfreundin.de/tortilla-wraps-selber-machen/#recipe](https://www.gaumenfreundin.de/tortilla-wraps-selber-machen/#recipe)
+- [x] [https://www.einfachmalene.de/schoko-haferflockenkekse-mit-zimt/](https://www.einfachmalene.de/schoko-haferflockenkekse-mit-zimt/)
 - [x] [https://emmikochteinfach.de/original-guacamole-einfach-selber-machen/#wprm-recipe-container-9506](https://emmikochteinfach.de/original-guacamole-einfach-selber-machen/#wprm-recipe-container-9506)
 - [x] [https://www.chefkoch.de/rezepte/1151011221381450/Der-beste-Pizzateig.html](https://www.chefkoch.de/rezepte/1151011221381450/Der-beste-Pizzateig.html)
-- [ ] [https://www.gaumenfreundin.de/nasi-goreng/#recipe](https://www.gaumenfreundin.de/nasi-goreng/#recipe)
-- [ ] [https://www.gaumenfreundin.de/gegrilltes-gemuese/#recipe](https://www.gaumenfreundin.de/gegrilltes-gemuese/#recipe)
-- [ ] [https://www.gaumenfreundin.de/tortelliniauflauf-vegetarisch/#recipe](https://www.gaumenfreundin.de/tortelliniauflauf-vegetarisch/#recipe)
-- [ ] [https://www.gaumenfreundin.de/hackfleisch-lauch-pfanne/](https://www.gaumenfreundin.de/hackfleisch-lauch-pfanne/)
-- [ ] [https://www.lieberbacken.com/2021/05/27/blumenkohl-mit-knuspriger-kasekruste/](https://www.lieberbacken.com/2021/05/27/blumenkohl-mit-knuspriger-kasekruste/)
-- [ ] [https://www.gutekueche.at/gesunder-musliriegel-rezept-34987](https://www.gutekueche.at/gesunder-musliriegel-rezept-34987)
+- [x] [https://www.gaumenfreundin.de/nasi-goreng/#recipe](https://www.gaumenfreundin.de/nasi-goreng/#recipe)
+- [x] [https://www.gaumenfreundin.de/gegrilltes-gemuese/#recipe](https://www.gaumenfreundin.de/gegrilltes-gemuese/#recipe)
+- [x] [https://www.gaumenfreundin.de/tortelliniauflauf-vegetarisch/#recipe](https://www.gaumenfreundin.de/tortelliniauflauf-vegetarisch/#recipe)
+- [x] [https://www.gaumenfreundin.de/hackfleisch-lauch-pfanne/](https://www.gaumenfreundin.de/hackfleisch-lauch-pfanne/)
+- [x] [https://www.lieberbacken.com/2021/05/27/blumenkohl-mit-knuspriger-kasekruste/](https://www.lieberbacken.com/2021/05/27/blumenkohl-mit-knuspriger-kasekruste/)
+- [x] [https://www.gutekueche.at/gesunder-musliriegel-rezept-34987](https://www.gutekueche.at/gesunder-musliriegel-rezept-34987)
 - [x] [https://www.chefkoch.de/rezepte/2991591451996107/Einfache-Muesli-Riegel.html](https://www.chefkoch.de/rezepte/2991591451996107/Einfache-Muesli-Riegel.html)
-- [ ] [https://www.eatme.eu/de/rezepte/kerbelsuppe](https://www.eatme.eu/de/rezepte/kerbelsuppe)
-- [ ] [https://www.gutekueche.at/baerlauch-nudeln-rezept-17486](https://www.gutekueche.at/baerlauch-nudeln-rezept-17486)
-- [ ] [https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe](https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe) 
-- [ ] https://www.gewuerze-der-welt.net/rezepte/hauptgang/orientalische-hackfleisch-fladen-mit-baharat-unserem-gewuerz-des-monats?srsltid=AU7gw4Wtqz6KRXBJvT-XhE98r25EXjiyTPM-ufmzxpSrNGg14A1VBEU_
-- [ ] https://asiastreetfood.com/blogs/rezept/funf-gewurze-tofu
-- [ ] https://www.lecker.de/klassischer-gemueseeintopf-70683.html
+- [x] [https://www.eatme.eu/de/rezepte/kerbelsuppe](https://www.eatme.eu/de/rezepte/kerbelsuppe)
+- [x] [https://www.gutekueche.at/baerlauch-nudeln-rezept-17486](https://www.gutekueche.at/baerlauch-nudeln-rezept-17486)
+- [x] [https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe](https://www.gaumenfreundin.de/maultaschen-pfanne/#recipe) 
+- [x] [https://www.gewuerze-der-welt.net/rezepte/hauptgang/orientalische-hackfleisch-fladen-mit-baharat-unserem-gewuerz-des-monats](https://www.gewuerze-der-welt.net/rezepte/hauptgang/orientalische-hackfleisch-fladen-mit-baharat-unserem-gewuerz-des-monats)
+- [x] https://asiastreetfood.com/blogs/rezept/funf-gewurze-tofu
+- [x] https://www.lecker.de/klassischer-gemueseeintopf-70683.html
 

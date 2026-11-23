@@ -113,6 +113,31 @@ def extract_og_image(html):
     return None
 
 
+def extract_html_author(html):
+    """Autor aus `<meta name="author" content="...">` (z. B. „Steffi (Gaumenfreundin)").
+
+    Fallback: nur wenn kein JSON-LD-Autor gefunden wurde (Regel 1 des fix-chefkoch-import).
+    """
+    m = re.findall(r'<meta[^>]+name=["\']author["\'][^>]+content=["\']([^"\']+)["\']', html)
+    if m:
+        return m[0].strip()
+    return None
+
+
+def resolve_author(recipe, html):
+    """Autor: JSON-LD-`author.name` -> HTML-Meta -> '-'.
+
+    Vorrang (Regel 1 fix-chefkoch-import): JSON-LD, sonst HTML, sonst '-'.
+    """
+    author = recipe.get("author")
+    if isinstance(author, dict) and author.get("name"):
+        return author["name"].strip()
+    html_author = extract_html_author(html)
+    if html_author:
+        return html_author.strip()
+    return "-"
+
+
 def extract_recipe_url(html):
     """Die canonical-URL des Rezepts (für den Index-„Quelle"-Link).
 
@@ -135,6 +160,55 @@ def extract_recipe_url(html):
     except Exception:
         pass
     return "https://www.chefkoch.de"
+
+
+def resolve_source_name(html, url):
+    """Name der tatsächlich genutzten Quelle (nicht „Chefkoch").
+
+    Vorrang (fix-chefkoch-import):
+      1) Der im HTML-Code genannte Site-Name (z. B. „Gaumenfreundin" in og-site
+         oder einem JSON-LD-Feld), wenn leicht zu ermitteln.
+      2) Sonst die Domain der URL (z. B. „gaumenfreundin.de").
+    """
+    # og:site-Tag (z. B. <meta name="og:site_name" content="Gaumenfreundin ...">)
+    site = re.findall(r'og:site_name"?\s*content="([^"]+)"', html)
+    if site:
+        return re.split(r"[\s–-]", site[0].strip())[0]
+    # WebSite-Node im JSON-LD-@graph (nicht der Rezept-Titel!).
+    # Der WebSite-Node kann verschachtelte Objekte enthalten, daher wird er über
+    # geschweifte-Klammern ausbalanciert gefunden (wie extract_jsonld_recipe).
+    try:
+        for block in re.findall(r'<script type="application/ld\+json">(.+)</script>', html, re.S):
+            for m in re.finditer(r'\s*{"@type":"WebSite"', block):
+                # Der Regex enthält das „{"@type":"WebSite""; der „{" liegt bei m.start().
+                start = m.start()
+                depth = 0
+                end = None
+                for idx in range(start, len(block)):
+                    if block[idx] == "{":
+                        depth += 1
+                    elif block[idx] == "}":
+                        depth -= 1
+                        if depth == 0:
+                            end = idx + 1
+                            break
+                if end is None:
+                    continue
+                o = json.loads(block[start:end])
+                name = str(o.get("name", "")).strip()
+                if name:
+                    # Kürze lange Blog-Tagebuch-Namen auf den ersten Wortteil (z. B.
+                    # „Gaumenfreundin Foodblog – ..." -> „Gaumenfreundin").
+                    return re.split(r"[\s–-]", name)[0]
+    except Exception:
+        pass
+    # Domain der URL
+    if url:
+        host = re.split(r"[/?#]", url, 1)[0]
+        host = re.sub(r"^https?://", "", host)
+        if host:
+            return host
+    return "Chefkoch"
 
 
 def download_image(url, dst):
@@ -336,7 +410,7 @@ def diet_names(recipe):
     return out
 
 
-def build_markdown(recipe, name, image_url, original_name=None, source_url="https://www.chefkoch.de"):
+def build_markdown(recipe, name, image_url, original_name=None, source_url="https://www.chefkoch.de", source_name=None, author_name=None):
     """Erzeugt die Markdown-Datei aus den extrahierten Feldern."""
     original_name = original_name or recipe.get("name", name)
 
@@ -344,13 +418,6 @@ def build_markdown(recipe, name, image_url, original_name=None, source_url="http
     title = recipe.get("name", name)
     if " von " in title:
         title = title.split(" von ", 1)[0].strip()
-
-    author = recipe.get("author")
-    author_name = ""
-    if isinstance(author, dict):
-        author_name = author.get("name", "")
-    if not author_name:
-        author_name = "Chefkoch"
 
     date = recipe.get("datePublished")
     date_str = datetime.fromisoformat(date).strftime("%d.%m.%Y") if date else "—"
@@ -398,11 +465,14 @@ def build_markdown(recipe, name, image_url, original_name=None, source_url="http
     allergens = diet_names(recipe)
     allergen_str = " · ".join(allergens) if allergens else "—"
 
+    author_name = author_name or resolve_author(recipe, html)
+
     lines = []
     lines.append("# %s" % title)
     lines.append("")
     lines.append("- **Rezept:** %s" % original_name)
-    lines.append("- **Quelle:** [Chefkoch](%s)" % source_url)
+    lines.append("- **Autor:** %s" % author_name)
+    lines.append("- **Quelle:** [%s](%s)" % (source_name, source_url))
     lines.append("- **Bewertung:** —")
     lines.append("- **Arbeitszeit:** %s · **Gesamtzeit:** %s · **Schwierigkeit:** %s"
                   % (fmt_time(prep), fmt_time(total_time), difficulty))
@@ -455,14 +525,15 @@ def build_markdown(recipe, name, image_url, original_name=None, source_url="http
     return "\n".join(lines)
 
 
-def add_index_row(name, title, source_url):
+def add_index_row(name, title, source_url, source_name="Chefkoch", author_name="—"):
     """Fügt eine Index-Zeile an (Dry-Run: nur in Memory; --write: in Datei).
 
     Format folgt der bestehenden Tabelle. Icon = ❓ (kein Bewertungstags).
+    Quelle/Autor = Name der tatsächlich genutzten Quelle (fix-chefkoch-import).
     """
     img = "<img src=\"images/%s-img.jpg\" alt=\"%s\" style=\"width:100px;height:auto;\" />" % (name, title)
     link = "[%s](rezepte/%s.md)" % (title, name)
-    row = "| ❓    | %s | %s | Chefkoch | [Chefkoch](%s) |" % (img, link, source_url)
+    row = "| ❓    | %s | %s | %s | [%s](%s) |" % (img, link, source_name, source_name, source_url)
     return row
 
 
@@ -514,6 +585,14 @@ def main():
     if " von " in title:
         title = title.split(" von ", 1)[0].strip()
     name = resolve_name(normalize_name(title))
+
+    # Quelle des Rezepts = Name der tatsächlich genutzten Quelle (nicht „Chefkoch").
+    # 1) Name, wenn leicht zu ermitteln; sonst Domain der URL.
+    source_name = resolve_source_name(html, args.url)
+
+    # Autor: JSON-LD -> HTML-Meta -> "-".
+    author_name = resolve_author(recipe, html)
+
     image_url = extract_og_image(html)
 
     if not image_url:
@@ -530,6 +609,7 @@ def main():
     print("Rezept:   %s" % original_name)
     print("Dateiname: %s" % name)
     print("Bild:      %s" % image_url)
+    print("  Quelle:  %s (%s)" % (source_name, source_url))
     print()
 
     if not args.write:
@@ -538,7 +618,7 @@ def main():
         print("  Ziel: %s" % img_dst)
         if args.index:
             print("  Index-Zeile:")
-            print("  " + add_index_row(name, title, source_url))
+            print("  " + add_index_row(name, title, source_url, source_name, author_name))
         return
 
     # Bild herunterladen
@@ -551,13 +631,13 @@ def main():
 
     ok = copy_file(tmp_img, img_dst)
     if ok:
-        md = build_markdown(recipe, name, image_url, original_name, source_url)
+        md = build_markdown(recipe, name, image_url, original_name, source_url, source_name, author_name)
         with open(md_dst, "w", encoding="utf-8") as f:
             f.write(md)
         print("\n  Rezept-Datei geschrieben: %s" % md_dst)
 
     if args.index:
-        row = add_index_row(name, title, source_url)
+        row = add_index_row(name, title, source_url, source_name, author_name)
         # Keine Leerzeile vor der neuen Zeile: die kommt direkt unter der letzten
         # Tabellenzeile. Prüfe, ob die Datei (außer dem letzten Zeilencode) leer ist
         # bzw. ohne Endzeilencode endet — sonst nur die neue Zeile anhängen.

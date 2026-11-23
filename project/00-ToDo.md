@@ -20,7 +20,8 @@
 - [x] Vorschaubilder kleiner skalieren (max 600Px breit
 - [x] Was ist mit den temporären html-Dateien in ``rohdaten/`` ?
 - [x] Nochmal die Bemerkung bei den Maultaschen! (Mehr mehr!)
-- [ ] Quellenangabe stimmt nicht, wenn das chefkoch-Skript läuft. Lesse ich heute nicht mehr fixen, sondern korrigiere manuell.  Besser vielleicht: Lassen, wie es ist, durch ``index-sort``  reparieren
+- [x] Quellenangabe stimmt nicht, wenn das chefkoch-Skript läuft. Lesse ich heute nicht mehr fixen, sondern korrigiere manuell.  Besser vielleicht: Lassen, wie es ist, durch ``index-sort``  reparieren [[fix-chefkoch-import]] . Scheint nun zu gehen. 
+
 
 
 
